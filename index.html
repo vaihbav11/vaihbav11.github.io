@@ -1,48 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<div class="wrap">
-
-  <!-- ============ NAV ============ -->
-  <header class="nav">
-    <a href="#top" class="nav-mark">YN</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- ============ HERO / ABOUT ============ -->
-  <!-- EDIT ME: your name, role, and a short bio -->
+<!-- ============ HERO / ABOUT ============ -->
   <section id="top" class="hero">
     <h1>
-      Hi, I'm <span class="accent-coral">Your Name</span> —
-      I build <span class="accent-teal">thoughtful</span> things
-      on the web.
+      Hi, I'm <span class="accent-coral">Vaibhav Chaturvedi</span> —
+      I build <span class="accent-teal">intelligent</span> things
+      with Python and ML.
     </h1>
     <p class="hero-sub">
-      I'm a <strong>[Your Role, e.g. Frontend Developer]</strong> based in
-      [Your City]. I care about <span class="accent-indigo">clean code</span>,
-      <span class="accent-teal">good design</span>, and products that
-      actually help people. This is where I keep a running record of
+      I'm a <strong>Machine Learning Engineer</strong> based in
+      Champa, Chhattisgarh. I care about <span class="accent-indigo">models that actually work</span>,
+      <span class="accent-teal">APIs that don't break</span>, and products that
+      solve real problems for real people. This is where I keep a running record of
       what I've built and what I'm learning.
     </p>
     <div class="hero-links">
-      <a href="mailto:you@example.com">you@example.com</a>
-      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:vaibhav@example.com">vaibhav@example.com</a>
+      <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/vaibhavchaturvedi" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
 
@@ -50,28 +23,32 @@
   <section id="about" class="about">
     <h2>About</h2>
     <p>
-      <!-- EDIT ME: 3-5 sentences about your background, what drives you,
-           and what kind of work you're looking for or enjoy doing. -->
-      Write a few sentences here about your background — where you studied
-      or how you got started, what kind of problems you like solving, and
-      what you're working toward. Keep it in your own voice; this is the
-      part people read to decide if they want to <span class="accent-coral">work with you</span>.
+      I'm a CS/AI graduate from CSVTU, Bhilai, with hands-on ML internship experience at
+      IIIT Naya Raipur, Unified Mentor, and currently BharatCares. I gravitate toward
+      NLP problems — text classification, hate speech detection, sentiment analysis — where
+      a well-tuned BERT model can make a product meaningfully better.
+      Outside ML, I've led frontend development on a hyperlocal food delivery app (Flutter/Dart)
+      and built production-ready REST APIs with FastAPI. I'm looking for a <span class="accent-coral">remote ML or AI
+      engineering role</span> where I can ship things that matter.
     </p>
   </section>
 
   <!-- ============ SKILLS ============ -->
   <section id="skills" class="skills">
     <h2>Skills</h2>
-    <!-- EDIT ME: replace with your real skills. Add/remove <li> freely. -->
     <ul class="skill-list">
-      <li class="tag c1">HTML &amp; CSS</li>
-      <li class="tag c2">JavaScript</li>
-      <li class="tag c3">React</li>
       <li class="tag c1">Python</li>
+      <li class="tag c2">HuggingFace Transformers</li>
+      <li class="tag c3">BERT / DistilBERT</li>
+      <li class="tag c1">TensorFlow</li>
+      <li class="tag c2">FastAPI</li>
+      <li class="tag c3">Streamlit</li>
+      <li class="tag c1">Flutter / Dart</li>
       <li class="tag c2">Git &amp; GitHub</li>
-      <li class="tag c3">Figma</li>
-      <li class="tag c1">SQL</li>
-      <li class="tag c2">Node.js</li>
+      <li class="tag c3">REST APIs</li>
+      <li class="tag c1">Scikit-learn</li>
+      <li class="tag c2">OpenAI / Claude APIs</li>
+      <li class="tag c3">SQL</li>
     </ul>
   </section>
 
@@ -79,80 +56,76 @@
   <section id="projects" class="projects">
     <h2>Projects</h2>
 
-    <!-- EDIT ME: duplicate a .project block for each project you want to show -->
     <article class="project">
       <div class="project-head">
-        <h3>Project One</h3>
+        <h3>Three-Agent AI System</h3>
         <span class="project-year">2026</span>
       </div>
       <p>
-        One or two sentences describing what this project does and the
-        problem it solves. Mention the <span class="accent-teal">interesting</span> part.
+        A multi-agent backend where an Email Assistant, Code Generator, and Research Agent
+        collaborate via the Claude API and FastAPI. Each agent handles a distinct task type;
+        the system routes requests and aggregates results automatically.
       </p>
       <div class="project-tags">
-        <span>React</span><span>Node.js</span><span>PostgreSQL</span>
+        <span>Claude API</span><span>FastAPI</span><span>Python</span><span>Multi-agent</span>
       </div>
       <div class="project-links">
-        <a href="#" target="_blank" rel="noopener">Live site</a>
-        <a href="#" target="_blank" rel="noopener">Source code</a>
+        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
       </div>
     </article>
 
     <article class="project">
       <div class="project-head">
-        <h3>Project Two</h3>
-        <span class="project-year">2025</span>
+        <h3>Content Moderation API</h3>
+        <span class="project-year">2026</span>
       </div>
       <p>
-        Describe this project too. What did you build it with, and why
-        did you make the choices you did?
+        A REST API for automated content moderation powered by a fine-tuned DistilBERT model,
+        achieving 91% precision. Built for scale — accepts batch requests and returns structured
+        labels with confidence scores via FastAPI.
       </p>
       <div class="project-tags">
-        <span>Python</span><span>Data analysis</span>
+        <span>DistilBERT</span><span>FastAPI</span><span>Python</span><span>NLP</span>
       </div>
       <div class="project-links">
-        <a href="#" target="_blank" rel="noopener">Live site</a>
-        <a href="#" target="_blank" rel="noopener">Source code</a>
+        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
       </div>
     </article>
 
     <article class="project">
       <div class="project-head">
-        <h3>Project Three</h3>
+        <h3>Live Voice Translation System</h3>
         <span class="project-year">2025</span>
       </div>
       <p>
-        A third project. Three is a good minimum to show range — feel
-        free to add more by copying this block.
+        Real-time speech-to-speech translation pipeline combining OpenAI Whisper for
+        transcription and Helsinki-NLP models for translation. Designed for low-latency
+        streaming, with a Streamlit interface for live demos.
       </p>
       <div class="project-tags">
-        <span>Figma</span><span>UI Design</span>
+        <span>Whisper</span><span>Helsinki-NLP</span><span>Streamlit</span><span>Python</span>
       </div>
       <div class="project-links">
-        <a href="#" target="_blank" rel="noopener">Live site</a>
-        <a href="#" target="_blank" rel="noopener">Source code</a>
+        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h3>Hate Speech Detection</h3>
+        <span class="project-year">2025</span>
+      </div>
+      <p>
+        Fine-tuned a BERT-based classifier to detect hate speech in social media text,
+        reaching ~92% accuracy. Includes a data preprocessing pipeline, training scripts,
+        and a simple inference API.
+      </p>
+      <div class="project-tags">
+        <span>BERT</span><span>TensorFlow</span><span>Python</span><span>NLP</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
       </div>
     </article>
 
   </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" class="contact">
-    <h2>Let's talk</h2>
-    <p>
-      I'm open to <span class="accent-coral">new opportunities</span> and
-      always happy to hear about interesting projects.
-      The easiest way to reach me is by email.
-    </p>
-    <a class="contact-cta" href="mailto:you@example.com">you@example.com</a>
-  </section>
-
-  <footer class="footer">
-    <span>© 2026 Your Name</span>
-    <span>Built with HTML &amp; CSS, hosted on GitHub Pages</span>
-  </footer>
-
-</div>
-
-</body>
-</html>
