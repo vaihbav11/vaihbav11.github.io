@@ -13,21 +13,19 @@ const DATA = {
 
   /* ---------- 1. BASICS ---------- */
   name: "Vaibhav Chaturvedi",
-  initials: "VC",                     // shown in the navbar logo
+  initials: "VC",
   location: "Bhilai, Chhattisgarh, India",
   email: "vaihbavv11@gmail.com",
   phone: "+91 76938 41707",
 
-  // Replace # with your real profile URLs
   links: {
     github:   "https://github.com/vaihbav11",
     linkedin: "https://www.linkedin.com/in/vaibhavchaturvedi11",
     leetcode: "https://leetcode.com/vaihbav",
-    resume:   "vaibhav_chaturvedi_cv.pdf"            // put your PDF next to index.html
+    resume:   "vaibhav_chaturvedi_cv.pdf"
   },
 
   /* ---------- 2. HERO SECTION ---------- */
-  // These cycle in the animated typing effect
   roles: [
     "AI/ML Engineer",
     "NLP Enthusiast",
@@ -36,7 +34,7 @@ const DATA = {
   ],
 
   tagline: "Transforming complex data into deployable AI solutions. Specializing in ML pipelines, deep NLP, and robust API architecture.",
-  // Small stat chips under the hero
+
   stats: [
     { value: "10+", label: "AI & ML Systems Built" },
     { value: "4",   label: "Internships" },
@@ -60,7 +58,7 @@ const DATA = {
       blurb: "A three-agent system — Email Assistant, Code Generator, and Research Agent — each calling the Claude API for its own task and exposed as REST endpoints through FastAPI. The Research Agent uses server-side web search, so the model decides how many searches to run and returns a synthesized answer with deduplicated, cited sources.",
       tags: ["Python", "Claude API", "FastAPI", "Agents"],
       demo: "",
-      code: "https://github.com/vaihbav11/" 
+      code: "https://github.com/vaihbav11/"
     },
     {
       size: "small",
@@ -175,17 +173,14 @@ const DATA = {
       ]
     }
   ],
-   
+
   /* ---------- 6. ABOUT SECTION ---------- */
-  // Each string becomes its own paragraph.
   about: [
     "I'm a CS Engineer specialising in AI, and most of what I do lives in the gap between a model that works in a notebook and a model that works for real people.",
     "That means fine-tuning transformers like BERT, DistilBERT, and Whisper, then actually shipping them — REST APIs with FastAPI, Streamlit apps with live audio, agentic systems built on the Claude API. I've consistently landed above 90% accuracy across projects, but the part I care about more is whether the thing stays fast and reliable once it's deployed.",
-    "I've worked across three internships — BharatCares, Unified Mentor, and IIIT Naya Raipur — spanning applied research and production ML. Right now I'm looking for a remote AI/ML role where I can build systems that drive real business impact."
+    "I've worked across four internships — BharatCares, Unified Mentor, Bharat Intern, and IIIT Naya Raipur — spanning applied research and production ML. Right now I'm looking for a remote AI/ML role where I can build systems that drive real business impact."
   ],
 
-  // Put a photo named "profile.jpg" next to index.html and it will
-  // appear automatically. Leave it missing and you'll see your initials.
   photo: "profile.jpg",
 
   /* ---------- 7. SKILLS GRID ---------- */
@@ -210,7 +205,7 @@ const DATA = {
     { degree: "Class XII (CBSE)", school: "Delhi Public School, Champa", date: "2021" }
   ],
 
- certifications: [
+  certifications: [
     { name: "Artificial Intelligence Fundamentals", issuer: "IBM SkillsBuild", date: "2026" },
     { name: "C++ Intermediate", issuer: "Sololearn", date: "2026" },
     { name: "DSA with Python", issuer: "TestDude", date: "2026" },
