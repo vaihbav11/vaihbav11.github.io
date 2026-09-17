@@ -169,12 +169,15 @@ $("contactHeading").textContent = DATA.contactHeading;
 $("contactBlurb").textContent = DATA.contactBlurb;
 
 (function(){
+  // pull the handle straight out of your GitHub URL
+  const handle = "@" + DATA.links.github.replace(/\/+$/, "").split("/").pop();
+
   const rows = [
-    { label: "Email",    value: DATA.email,           href: "mailto:" + DATA.email },
-    { label: "GitHub",   value: "@yourusername",      href: DATA.links.github },
-    { label: "LinkedIn", value: "Connect with me",    href: DATA.links.linkedin },
-    { label: "LeetCode", value: "See my solutions",   href: DATA.links.leetcode },
-    { label: "Résumé",   value: "Download PDF",       href: DATA.links.resume }
+    { label: "Email",    value: DATA.email,         href: "mailto:" + DATA.email },
+    { label: "GitHub",   value: handle,             href: DATA.links.github },
+    { label: "LinkedIn", value: "Connect with me",  href: DATA.links.linkedin },
+    { label: "LeetCode", value: "See my solutions", href: DATA.links.leetcode },
+    { label: "Résumé",   value: "Download PDF",     href: DATA.links.resume }
   ].filter(r => r.href && r.href !== "#");
 
   $("contactLinks").innerHTML = rows.map(r => `
