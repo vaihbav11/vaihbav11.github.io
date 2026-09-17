@@ -20,42 +20,38 @@ const DATA = {
 
   // Replace # with your real profile URLs
   links: {
-    github:   "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    leetcode: "https://leetcode.com/yourusername",
-    resume:   "autoCV.pdf"            // put your PDF next to index.html
+    github:   "https://github.com/vaihbav11",
+    linkedin: "https://www.linkedin.com/in/vaibhavchaturvedi11",
+    leetcode: "https://leetcode.com/vaihbav",
+    resume:   "vaibhav_chaturvedi_cv.pdf"            // put your PDF next to index.html
   },
 
   /* ---------- 2. HERO SECTION ---------- */
   // These cycle in the animated typing effect
   roles: [
     "AI/ML Engineer",
-    "NLP Specialist",
-    "Deep Learning Developer",
-    "Python Backend Developer"
+    "NLP Enthusiast",
+    "Deep Learning Learner",
+    "Python Developer"
   ],
 
-  tagline: "I build end-to-end ML and NLP systems — from fine-tuned transformers to deployed REST APIs that hold up in production.",
-
+  tagline: "Transforming complex data into deployable AI solutions. Specializing in ML pipelines, deep NLP, and robust API architecture."
   // Small stat chips under the hero
   stats: [
-    { value: "5+",  label: "ML projects shipped" },
-    { value: "3",   label: "Internships" },
-    { value: "90%+", label: "Model accuracy" }
+    { value: "10+", label: "AI & ML Systems Built" },
+    { value: "4",   label: "Internships" },
+    { value: "40%", label: "Manual Triage Reduction" }
   ],
 
   /* ---------- 3. SKILLS MARQUEE ---------- */
-  // Scrolls infinitely across the screen. Add or remove freely.
   marquee: [
     "Python", "TensorFlow", "Keras", "HuggingFace", "BERT", "DistilBERT",
     "Whisper", "scikit-learn", "FastAPI", "Streamlit", "Flask", "LangChain",
     "Claude API", "Docker", "Pandas", "NumPy", "SQL", "Power BI",
-    "Git & GitHub", "REST APIs", "C++", "Tableau"
+    "Git & GitHub", "REST APIs", "C++", "Tableau", "Flutter", "Android Studio", "Arduino"
   ],
 
   /* ---------- 4. PROJECTS (bento grid) ---------- */
-  // size: "large" = wide feature card, "small" = normal card.
-  // Put your 1–2 best projects as "large".
   projects: [
     {
       size: "large",
@@ -63,8 +59,8 @@ const DATA = {
       date: "Sept 2026",
       blurb: "A three-agent system — Email Assistant, Code Generator, and Research Agent — each calling the Claude API for its own task and exposed as REST endpoints through FastAPI. The Research Agent uses server-side web search, so the model decides how many searches to run and returns a synthesized answer with deduplicated, cited sources.",
       tags: ["Python", "Claude API", "FastAPI", "Agents"],
-      demo: "",                        // live link — leave "" to hide the button
-      code: ""                         // repo link — leave "" to hide the button
+      demo: "",
+      code: "https://github.com/vaihbav11/" 
     },
     {
       size: "small",
@@ -73,7 +69,7 @@ const DATA = {
       blurb: "Real-time speech-to-speech translation across 10+ languages with under 3s latency, using Whisper ASR and Helsinki-NLP transformers. Deployed as a Streamlit app with live audio in and out.",
       tags: ["Whisper", "Helsinki-NLP", "gTTS", "Streamlit"],
       demo: "",
-      code: ""
+      code: "https://github.com/vaihbav11/"
     },
     {
       size: "small",
@@ -82,7 +78,7 @@ const DATA = {
       blurb: "Fine-tuned DistilBERT on 15K labeled social posts to flag toxic content at 91% precision, then shipped it as a scalable REST API architected for throughput and low latency.",
       tags: ["DistilBERT", "HuggingFace", "REST API"],
       demo: "",
-      code: ""
+      code: "https://github.com/vaihbav11/"
     },
     {
       size: "small",
@@ -91,16 +87,43 @@ const DATA = {
       blurb: "BERT-based NLP pipeline classifying customer feedback by sentiment and intent across 8 categories at 91% accuracy — cutting manual ticket triage time by 40% through automated routing.",
       tags: ["BERT", "TF-IDF", "scikit-learn", "Pandas"],
       demo: "",
-      code: ""
+      code: "https://github.com/vaihbav11/"
     },
     {
       size: "small",
       title: "Hate Speech Detection",
-      date: "Jun 2025",
+      date: "Jul 2025",
       blurb: "Full NLP pipeline with TF-IDF vectorization and multi-classifier benchmarking across SVM, Naive Bayes, and Logistic Regression — 92% accuracy, with confusion matrices and ROC curves.",
       tags: ["scikit-learn", "SVM", "Naive Bayes"],
       demo: "",
-      code: ""
+      code: "https://github.com/vaihbav11/"
+    },
+    {
+      size: "small",
+      title: "Student Marks Prediction & Profiling",
+      date: "Feb 2025",
+      blurb: "Engineered a predictive scoring and student profile modeling system to forecast academic performance using regression algorithms.",
+      tags: ["Python", "Pandas", "scikit-learn"],
+      demo: "",
+      code: "https://github.com/vaihbav11/"
+    },
+    {
+      size: "small",
+      title: "Smart Irrigation System",
+      date: "2024",
+      blurb: "IoT-based smart irrigation project leveraging C++ and Arduino to orchestrate and process data gathered via integrated hardware sensors.",
+      tags: ["C++", "Arduino", "IoT", "Hardware"],
+      demo: "",
+      code: "https://github.com/vaihbav11/"
+    },
+    {
+      size: "small",
+      title: "Web Music Application",
+      date: "2023",
+      blurb: "A foundational web-based music streaming application featuring core playback controls. Built from scratch as a first programming project.",
+      tags: ["Web Dev", "UI/UX", "Audio"],
+      demo: "",
+      code: "https://github.com/vaihbav11/"
     }
   ],
 
@@ -130,6 +153,17 @@ const DATA = {
       ]
     },
     {
+      role: "Machine Learning Intern",
+      org: "Bharat Intern",
+      place: "Remote",
+      date: "May 2024 – Jun 2024",
+      current: false,
+      points: [
+        "Developed and evaluated multiple predictive models, including a Wine Quality classifier, an Iris dataset model, and a House Price prediction regression pipeline.",
+        "Gained hands-on experience in full-cycle model training, data preprocessing, and algorithm selection across diverse datasets."
+      ]
+    },
+    {
       role: "Research Intern",
       org: "IIIT Naya Raipur",
       place: "Raipur, CG",
@@ -141,7 +175,7 @@ const DATA = {
       ]
     }
   ],
-
+   
   /* ---------- 6. ABOUT SECTION ---------- */
   // Each string becomes its own paragraph.
   about: [
@@ -176,8 +210,16 @@ const DATA = {
     { degree: "Class XII (CBSE)", school: "Delhi Public School, Champa", date: "2021" }
   ],
 
-  certifications: [
-    { name: "Artificial Intelligence Fundamentals", issuer: "IBM SkillsBuild", date: "2026" }
+ certifications: [
+    { name: "Artificial Intelligence Fundamentals", issuer: "IBM SkillsBuild", date: "2026" },
+    { name: "C++ Intermediate", issuer: "Sololearn", date: "2026" },
+    { name: "DSA with Python", issuer: "TestDude", date: "2026" },
+    { name: "Machine Learning", issuer: "TestDude", date: "2026" },
+    { name: "UI/UX", issuer: "TestDude", date: "2026" },
+    { name: "Algorithmic Game Theory", issuer: "NPTEL", date: "2026" },
+    { name: "Management Game Theory", issuer: "NPTEL", date: "2026" },
+    { name: "High Performance Scientific Computing", issuer: "NPTEL", date: "2026" },
+    { name: "AI for Investment", issuer: "NPTEL", date: "2026" }
   ],
 
   /* ---------- 9. CONTACT FOOTER ---------- */
