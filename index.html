@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vaibhav Chaturvedi — AI/ML Engineer</title>
 <meta name="description" content="AI/ML Engineer specialising in NLP, deep learning, and deployed ML systems.">
+<meta name="theme-color" content="#0F172A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,11 +13,6 @@
 </head>
 <body>
 
-<!-- background grid + glow -->
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="bg-glow" aria-hidden="true"></div>
-
-<!-- scroll progress bar -->
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
@@ -36,8 +32,10 @@
 
 <main>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="hero">
+  <!-- ============ 1. HERO — tone: deepest slate ============ -->
+  <section class="hero tone-dark" id="hero">
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
     <div class="inner">
       <p class="hero-eyebrow"><span class="dot"></span><span id="heroLocation"></span></p>
       <h1 class="hero-name" id="heroName"></h1>
@@ -54,13 +52,13 @@
     <a href="#work" class="scroll-hint" aria-label="Scroll down"><span></span></a>
   </section>
 
-  <!-- ================= MARQUEE ================= -->
-  <section class="marquee-wrap" aria-label="Technical skills">
+  <!-- ============ 2. MARQUEE ============ -->
+  <section class="marquee-wrap tone-dark" aria-label="Technical skills">
     <div class="marquee" id="marquee"></div>
   </section>
 
-  <!-- ================= WORK ================= -->
-  <section class="section" id="work">
+  <!-- ============ 3. WORK — tone: slate lifting ============ -->
+  <section class="section tone-dark" id="work">
     <div class="inner">
       <div class="section-head">
         <h2>Selected work</h2>
@@ -70,8 +68,8 @@
     </div>
   </section>
 
-  <!-- ================= EXPERIENCE ================= -->
-  <section class="section" id="experience">
+  <!-- ============ 4. EXPERIENCE — tone: dusk blue ============ -->
+  <section class="section tone-dark" id="experience">
     <div class="inner">
       <div class="section-head">
         <h2>Experience</h2>
@@ -81,24 +79,27 @@
     </div>
   </section>
 
-  <!-- ================= ABOUT ================= -->
-  <section class="section" id="about">
+  <!-- ============ 5. SKY BAND — the dusk-to-daylight handoff ============ -->
+  <div class="sky-band" aria-hidden="true"></div>
+
+  <!-- ============ 6. ABOUT — tone: exact sky of the photo ============ -->
+  <section class="section tone-light" id="about">
     <div class="inner">
-      <div class="section-head">
-        <h2>About</h2>
-      </div>
       <div class="about-grid">
-        <div class="about-text" id="aboutText"></div>
+        <div class="about-text">
+          <div class="section-head"><h2>About</h2></div>
+          <div id="aboutText"></div>
+          <div class="photo-meta" id="photoMeta"></div>
+        </div>
         <div class="about-media">
           <div class="photo-frame" id="photoFrame"></div>
-          <div class="photo-meta" id="photoMeta"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= SKILLS ================= -->
-  <section class="section" id="skills">
+  <!-- ============ 7. SKILLS — tone: haze toward white ============ -->
+  <section class="section tone-light" id="skills">
     <div class="inner">
       <div class="section-head">
         <h2>Toolkit</h2>
@@ -121,8 +122,8 @@
 
 </main>
 
-<!-- ================= CONTACT / FOOTER ================= -->
-<footer class="contact" id="contact">
+<!-- ============ 8. CONTACT — tone: resolves to white ============ -->
+<footer class="contact tone-light" id="contact">
   <div class="inner">
     <h2 id="contactHeading"></h2>
     <p class="contact-blurb" id="contactBlurb"></p>
