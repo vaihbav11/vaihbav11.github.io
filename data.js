@@ -35,7 +35,7 @@ const DATA = {
     "Python Developer"
   ],
 
-  tagline: "Transforming complex data into deployable AI solutions. Specializing in ML pipelines, deep NLP, and robust API architecture."
+  tagline: "Transforming complex data into deployable AI solutions. Specializing in ML pipelines, deep NLP, and robust API architecture.",
   // Small stat chips under the hero
   stats: [
     { value: "10+", label: "AI & ML Systems Built" },
