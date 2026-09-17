@@ -1,131 +1,140 @@
-<!-- ============ HERO / ABOUT ============ -->
-  <section id="top" class="hero">
-    <h1>
-      Hi, I'm <span class="accent-coral">Vaibhav Chaturvedi</span> —
-      I build <span class="accent-teal">intelligent</span> things
-      with Python and ML.
-    </h1>
-    <p class="hero-sub">
-      I'm a <strong>Machine Learning Engineer</strong> based in
-      Champa, Chhattisgarh. I care about <span class="accent-indigo">models that actually work</span>,
-      <span class="accent-teal">APIs that don't break</span>, and products that
-      solve real problems for real people. This is where I keep a running record of
-      what I've built and what I'm learning.
-    </p>
-    <div class="hero-links">
-      <a href="mailto:vaibhav@example.com">vaibhav@example.com</a>
-      <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/vaibhavchaturvedi" target="_blank" rel="noopener">LinkedIn</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaibhav Chaturvedi — AI/ML Engineer</title>
+<meta name="description" content="AI/ML Engineer specialising in NLP, deep learning, and deployed ML systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- background grid + glow -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<!-- scroll progress bar -->
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <a href="#hero" class="logo"><span id="logoInitials"></span></a>
+  <nav class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="inner">
+      <p class="hero-eyebrow"><span class="dot"></span><span id="heroLocation"></span></p>
+      <h1 class="hero-name" id="heroName"></h1>
+      <p class="hero-role">
+        <span class="typed" id="typed"></span><span class="caret"></span>
+      </p>
+      <p class="hero-tagline" id="heroTagline"></p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary">View work</a>
+        <a href="#contact" class="btn btn-ghost">Contact me</a>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+    <a href="#work" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <section class="marquee-wrap" aria-label="Technical skills">
+    <div class="marquee" id="marquee"></div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="section" id="work">
+    <div class="inner">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p>Things I've built, shipped, and measured.</p>
+      </div>
+      <div class="bento" id="bento"></div>
     </div>
   </section>
 
-  <!-- ============ ABOUT (longer) ============ -->
-  <section id="about" class="about">
-    <h2>About</h2>
-    <p>
-      I'm a CS/AI graduate from CSVTU, Bhilai, with hands-on ML internship experience at
-      IIIT Naya Raipur, Unified Mentor, and currently BharatCares. I gravitate toward
-      NLP problems — text classification, hate speech detection, sentiment analysis — where
-      a well-tuned BERT model can make a product meaningfully better.
-      Outside ML, I've led frontend development on a hyperlocal food delivery app (Flutter/Dart)
-      and built production-ready REST APIs with FastAPI. I'm looking for a <span class="accent-coral">remote ML or AI
-      engineering role</span> where I can ship things that matter.
-    </p>
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience">
+    <div class="inner">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Where I've worked and what I shipped there.</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
   </section>
 
-  <!-- ============ SKILLS ============ -->
-  <section id="skills" class="skills">
-    <h2>Skills</h2>
-    <ul class="skill-list">
-      <li class="tag c1">Python</li>
-      <li class="tag c2">HuggingFace Transformers</li>
-      <li class="tag c3">BERT / DistilBERT</li>
-      <li class="tag c1">TensorFlow</li>
-      <li class="tag c2">FastAPI</li>
-      <li class="tag c3">Streamlit</li>
-      <li class="tag c1">Flutter / Dart</li>
-      <li class="tag c2">Git &amp; GitHub</li>
-      <li class="tag c3">REST APIs</li>
-      <li class="tag c1">Scikit-learn</li>
-      <li class="tag c2">OpenAI / Claude APIs</li>
-      <li class="tag c3">SQL</li>
-    </ul>
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="inner">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text" id="aboutText"></div>
+        <div class="about-media">
+          <div class="photo-frame" id="photoFrame"></div>
+          <div class="photo-meta" id="photoMeta"></div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ============ PROJECTS ============ -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
+  <!-- ================= SKILLS ================= -->
+  <section class="section" id="skills">
+    <div class="inner">
+      <div class="section-head">
+        <h2>Toolkit</h2>
+        <p>What I reach for day to day.</p>
+      </div>
+      <div class="skill-grid" id="skillGrid"></div>
 
-    <article class="project">
-      <div class="project-head">
-        <h3>Three-Agent AI System</h3>
-        <span class="project-year">2026</span>
+      <div class="edu-grid">
+        <div class="edu-col">
+          <h3>Education</h3>
+          <div id="education"></div>
+        </div>
+        <div class="edu-col">
+          <h3>Certifications</h3>
+          <div id="certs"></div>
+        </div>
       </div>
-      <p>
-        A multi-agent backend where an Email Assistant, Code Generator, and Research Agent
-        collaborate via the Claude API and FastAPI. Each agent handles a distinct task type;
-        the system routes requests and aggregates results automatically.
-      </p>
-      <div class="project-tags">
-        <span>Claude API</span><span>FastAPI</span><span>Python</span><span>Multi-agent</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>Content Moderation API</h3>
-        <span class="project-year">2026</span>
-      </div>
-      <p>
-        A REST API for automated content moderation powered by a fine-tuned DistilBERT model,
-        achieving 91% precision. Built for scale — accepts batch requests and returns structured
-        labels with confidence scores via FastAPI.
-      </p>
-      <div class="project-tags">
-        <span>DistilBERT</span><span>FastAPI</span><span>Python</span><span>NLP</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>Live Voice Translation System</h3>
-        <span class="project-year">2025</span>
-      </div>
-      <p>
-        Real-time speech-to-speech translation pipeline combining OpenAI Whisper for
-        transcription and Helsinki-NLP models for translation. Designed for low-latency
-        streaming, with a Streamlit interface for live demos.
-      </p>
-      <div class="project-tags">
-        <span>Whisper</span><span>Helsinki-NLP</span><span>Streamlit</span><span>Python</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="project-head">
-        <h3>Hate Speech Detection</h3>
-        <span class="project-year">2025</span>
-      </div>
-      <p>
-        Fine-tuned a BERT-based classifier to detect hate speech in social media text,
-        reaching ~92% accuracy. Includes a data preprocessing pipeline, training scripts,
-        and a simple inference API.
-      </p>
-      <div class="project-tags">
-        <span>BERT</span><span>TensorFlow</span><span>Python</span><span>NLP</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/vaihbav11" target="_blank" rel="noopener">Source code</a>
-      </div>
-    </article>
-
+    </div>
   </section>
+
+</main>
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer class="contact" id="contact">
+  <div class="inner">
+    <h2 id="contactHeading"></h2>
+    <p class="contact-blurb" id="contactBlurb"></p>
+    <div class="contact-links" id="contactLinks"></div>
+    <div class="footer-bar">
+      <span id="footerName"></span>
+      <span>Built by hand · hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
