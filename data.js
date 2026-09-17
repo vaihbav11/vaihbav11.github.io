@@ -1,30 +1,32 @@
+
+Data · JS
 /* ============================================================
    YOUR CONTENT — EDIT EVERYTHING HERE
    ------------------------------------------------------------
    This is the ONLY file you need to touch to update your site.
    Change the text between the quotes. Keep the quotes, commas,
    and curly braces exactly where they are.
-
+ 
    To add a project/job/skill: copy a whole { ... } block,
    paste it below, add a comma between blocks, then edit it.
    ============================================================ */
-
+ 
 const DATA = {
-
+ 
   /* ---------- 1. BASICS ---------- */
   name: "Vaibhav Chaturvedi",
   initials: "VC",
   location: "Bhilai, Chhattisgarh, India",
   email: "vaihbavv11@gmail.com",
   phone: "+91 76938 41707",
-
+ 
   links: {
     github:   "https://github.com/vaihbav11",
     linkedin: "https://www.linkedin.com/in/vaibhavchaturvedi11",
     leetcode: "https://leetcode.com/vaihbav",
     resume:   "vaibhav_chaturvedi_cv.pdf"
   },
-
+ 
   /* ---------- 2. HERO SECTION ---------- */
   roles: [
     "AI/ML Engineer",
@@ -32,15 +34,15 @@ const DATA = {
     "Deep Learning Learner",
     "Python Developer"
   ],
-
+ 
   tagline: "Transforming complex data into deployable AI solutions. Specializing in ML pipelines, deep NLP, and robust API architecture.",
-
+ 
   stats: [
     { value: "10+", label: "AI & ML Systems Built" },
     { value: "4",   label: "Internships" },
     { value: "40%", label: "Manual Triage Reduction" }
   ],
-
+ 
   /* ---------- 3. SKILLS MARQUEE ---------- */
   marquee: [
     "Python", "TensorFlow", "Keras", "HuggingFace", "BERT", "DistilBERT",
@@ -48,7 +50,7 @@ const DATA = {
     "Claude API", "Docker", "Pandas", "NumPy", "SQL", "Power BI",
     "Git & GitHub", "REST APIs", "C++", "Tableau", "Flutter", "Android Studio", "Arduino"
   ],
-
+ 
   /* ---------- 4. PROJECTS (bento grid) ---------- */
   projects: [
     {
@@ -124,7 +126,7 @@ const DATA = {
       code: "https://github.com/vaihbav11/"
     }
   ],
-
+ 
   /* ---------- 5. EXPERIENCE TIMELINE ---------- */
   experience: [
     {
@@ -173,16 +175,16 @@ const DATA = {
       ]
     }
   ],
-
+ 
   /* ---------- 6. ABOUT SECTION ---------- */
   about: [
     "I'm a CS Engineer specialising in AI, and most of what I do lives in the gap between a model that works in a notebook and a model that works for real people.",
     "That means fine-tuning transformers like BERT, DistilBERT, and Whisper, then actually shipping them — REST APIs with FastAPI, Streamlit apps with live audio, agentic systems built on the Claude API. I've consistently landed above 90% accuracy across projects, but the part I care about more is whether the thing stays fast and reliable once it's deployed.",
     "I've worked across four internships — BharatCares, Unified Mentor, Bharat Intern, and IIIT Naya Raipur — spanning applied research and production ML. Right now I'm looking for a remote AI/ML role where I can build systems that drive real business impact."
   ],
-
+ 
   photo: "profile.jpg",
-
+ 
   /* ---------- 7. SKILLS GRID ---------- */
   skillGroups: [
     {
@@ -198,13 +200,13 @@ const DATA = {
       items: ["C++", "C", "Git & GitHub", "FastAPI", "Streamlit", "Flask", "REST APIs", "Docker", "LangChain", "Claude API", "Jupyter", "Google Colab", "DSA", "DBMS", "OOP"]
     }
   ],
-
+ 
   /* ---------- 8. EDUCATION & CERTIFICATIONS ---------- */
   education: [
     { degree: "B.Tech, CSE (Artificial Intelligence)", school: "CSVTU, UTD, Bhilai", date: "2021 – 2025" },
     { degree: "Class XII (CBSE)", school: "Delhi Public School, Champa", date: "2021" }
   ],
-
+ 
   certifications: [
     { name: "Artificial Intelligence Fundamentals", issuer: "IBM SkillsBuild", date: "2026" },
     { name: "C++ Intermediate", issuer: "Sololearn", date: "2026" },
@@ -216,8 +218,9 @@ const DATA = {
     { name: "High Performance Scientific Computing", issuer: "NPTEL", date: "2026" },
     { name: "AI for Investment", issuer: "NPTEL", date: "2026" }
   ],
-
+ 
   /* ---------- 9. CONTACT FOOTER ---------- */
   contactHeading: "Let's build something.",
   contactBlurb: "I'm open to remote AI/ML roles and interesting problems. Email is the fastest way to reach me."
 };
+ 
