@@ -11,45 +11,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body> 
+<body>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
-<header class="nav" id="nav">
-  <a href="#hero" class="logo"><span id="logoInitials"></span></a>
-  <nav class="nav-links">
-    <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span>
-  </button>
+<header class="nav">
+  <a href="#work">Work</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
 </header>
+
+<!-- persistent center name-bar — fixed, visible on every section -->
+<div class="name-bar"><span>Vaibhav Chaturvedi</span></div>
+
+<button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span>
+</button>
+<nav class="mobile-links" id="mobileLinks">
+  <a href="#work">Work</a>
+  <a href="#experience">Experience</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
 <main>
 
   <!-- ============ 1. HERO — tone: deepest slate ============ -->
   <section class="hero tone-dark" id="hero">
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-glow" aria-hidden="true"></div>
-    <div class="inner">
-      <p class="hero-eyebrow"><span class="dot"></span><span id="heroLocation"></span></p>
-      <h1 class="hero-name" id="heroName"></h1>
-      <p class="hero-role">
-        <span class="typed" id="typed"></span><span class="caret"></span>
-      </p>
-      <p class="hero-tagline" id="heroTagline"></p>
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-primary">View work</a>
-        <a href="#contact" class="btn btn-ghost">Contact me</a>
-      </div>
+    <div class="hero-inner">
+      <h1 class="hero-name">Hi, I'm Vaibhav Chaturvedi!</h1>
+      <p class="hero-role" id="heroRole"></p>
       <div class="hero-stats" id="heroStats"></div>
     </div>
-    <a href="#work" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+    <a href="#work" class="scroll-chevron" aria-label="Scroll down">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><path d="M1 1L11 12L21 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
 
   <!-- ============ 2. MARQUEE ============ -->
@@ -80,6 +78,7 @@
   </section>
 
   <!-- ============ 5. SKY BAND — the dusk-to-daylight handoff ============ -->
+  <!-- ============ 5. SKY BAND — blends Experience into the photo's sky ============ -->
   <div class="sky-band" aria-hidden="true"></div>
 
   <!-- ============ 6. ABOUT — tone: exact sky of the photo ============ -->
@@ -99,7 +98,7 @@
   </section>
 
   <!-- ============ 7. SKILLS — tone: haze toward white ============ -->
-  <section class="section tone-light" id="skills">
+  <section class="section tone-dark" id="skills">
     <div class="inner">
       <div class="section-head">
         <h2>Toolkit</h2>
@@ -122,12 +121,17 @@
 
 </main>
 
-<!-- ============ 8. CONTACT — tone: resolves to white ============ -->
-<footer class="contact tone-light" id="contact">
+<!-- ============ 8. CONTACT ============ -->
+<footer class="contact tone-cool" id="contact">
   <div class="inner">
     <h2 id="contactHeading"></h2>
     <p class="contact-blurb" id="contactBlurb"></p>
     <div class="contact-links" id="contactLinks"></div>
+  </div>
+
+  <!-- the very last thing on the page: the river, with the credit line over it -->
+  <div class="closing-banner">
+    <img src="closing-banner.jpg" alt="Varanasi ghats on the river">
     <div class="footer-bar">
       <span id="footerName"></span>
       <span>Built by hand · hosted on GitHub Pages</span>
