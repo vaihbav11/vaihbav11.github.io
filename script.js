@@ -13,44 +13,29 @@ const esc = (s) => String(s)
 /* ============================================================
    1. BASICS + HERO
    ============================================================ */
-$("logoInitials").textContent = DATA.initials;
-$("heroName").textContent = DATA.name;
-$("heroLocation").textContent = DATA.location;
-$("heroTagline").textContent = DATA.tagline;
 $("footerName").textContent = "© " + new Date().getFullYear() + " " + DATA.name;
 document.title = DATA.name + " — " + DATA.roles[0];
 
-$("heroStats").innerHTML = DATA.stats.map(s => `
-  <div class="stat">
-    <div class="stat-value">${esc(s.value)}</div>
-    <div class="stat-label">${esc(s.label)}</div>
-  </div>
-`).join("");
+/* ---------- hero role loop, replaces the old "Scroll down" line ---------- */
+const roleOrder = ["Python Developer", "Deep Learning Learner", "NLP Enthusiast", "AI/ML Engineer"];
+const heroRole = $("heroRole");
+let roleIdx = 0;
+heroRole.textContent = roleOrder[0];
+setInterval(() => {
+  heroRole.classList.add("swap");
+  setTimeout(() => {
+    roleIdx = (roleIdx + 1) % roleOrder.length;
+    heroRole.textContent = roleOrder[roleIdx];
+    heroRole.classList.remove("swap");
+  }, 320);
+}, 2400);
 
-/* ---------- typing effect ---------- */
-(function typeLoop(){
-  const el = $("typed");
-  const words = DATA.roles;
-  let w = 0, c = 0, deleting = false;
-
-  function tick(){
-    const word = words[w];
-    c += deleting ? -1 : 1;
-    el.textContent = word.slice(0, c);
-
-    let wait = deleting ? 45 : 85;
-
-    if (!deleting && c === word.length){
-      wait = 1800;            // pause on a full word
-      deleting = true;
-    } else if (deleting && c === 0){
-      deleting = false;
-      w = (w + 1) % words.length;
-      wait = 320;
-    }
-    setTimeout(tick, wait);
-  }
-  tick();
+/* ---------- tilted closing photo in the footer ---------- */
+(function(){
+  const box = $("footerPhoto");
+  const img = new Image();
+  img.onload = () => { img.alt = DATA.name; box.appendChild(img); };
+  img.src = DATA.photo;
 })();
 
 /* ============================================================
@@ -192,51 +177,31 @@ $("contactBlurb").textContent = DATA.contactBlurb;
    8. INTERACTIONS — nav, progress bar, scroll reveal
    ============================================================ */
 
-/* sticky nav background */
-const nav = $("nav");
+/* scroll progress bar */
 const progress = $("progress");
-
-function onScroll(){
-  nav.classList.toggle("stuck", window.scrollY > 24);
+function onProgress(){
   const h = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
 }
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+window.addEventListener("scroll", onProgress, { passive: true });
+onProgress();
 
 /* mobile menu */
 const toggle = $("navToggle");
-const links = document.querySelector(".nav-links");
+const mobileLinks = $("mobileLinks");
 
 toggle.addEventListener("click", () => {
-  const open = links.classList.toggle("open");
+  const open = mobileLinks.classList.toggle("open");
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
 });
 
-links.querySelectorAll("a").forEach(a => {
+mobileLinks.querySelectorAll("a").forEach(a => {
   a.addEventListener("click", () => {
-    links.classList.remove("open");
+    mobileLinks.classList.remove("open");
     toggle.setAttribute("aria-expanded", "false");
   });
 });
-
-/* highlight the section you're currently reading */
-(function(){
-  const sections = [...document.querySelectorAll("main section[id]")];
-  const navLinks = [...document.querySelectorAll(".nav-links a")];
-
-  const spy = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      navLinks.forEach(l =>
-        l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id)
-      );
-    });
-  }, { rootMargin: "-45% 0px -50% 0px" });
-
-  sections.forEach(s => spy.observe(s));
-})();
 
 /* reveal elements as they scroll into view */
 (function(){
