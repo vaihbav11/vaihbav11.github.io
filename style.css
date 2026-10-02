@@ -82,7 +82,7 @@ h1,h2,h3{ line-height: 1.12; letter-spacing: -0.025em; font-weight: 700; color: 
 .hero        { background: var(--c-rust); }
 .marquee-wrap{ background: linear-gradient(to bottom, var(--c-rust), color-mix(in srgb, var(--c-rust) 40%, var(--c-carrot))); }
 #work        { background: linear-gradient(to bottom, color-mix(in srgb, var(--c-rust) 40%, var(--c-carrot)), var(--c-carrot)); }
-#experience  { background: var(--c-carrot); }
+#experience  { background: var(--c-carrot); } 
 #about       { background: var(--c-sky); }
 #skills      { background: linear-gradient(to bottom, var(--c-sky) 0%, var(--c-blue) 22%, var(--c-blue) 60%, var(--c-navy) 100%); }
 .contact     { background: var(--c-navy); }
