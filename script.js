@@ -30,13 +30,13 @@ setInterval(() => {
   }, 320);
 }, 2400);
 
-/* ---------- tilted closing photo in the footer ---------- */
-(function(){
-  const box = $("footerPhoto");
-  const img = new Image();
-  img.onload = () => { img.alt = DATA.name; box.appendChild(img); };
-  img.src = DATA.photo;
-})();
+/* ---------- hero stat bars ---------- */
+$("heroStats").innerHTML = DATA.stats.map(s => `
+  <div class="stat">
+    <div class="stat-value">${esc(s.value)}</div>
+    <div class="stat-label">${esc(s.label)}</div>
+  </div>
+`).join("");
 
 /* ============================================================
    2. MARQUEE — duplicated once so the loop is seamless
@@ -185,6 +185,7 @@ function onProgress(){
 }
 window.addEventListener("scroll", onProgress, { passive: true });
 onProgress();
+
 
 /* mobile menu */
 const toggle = $("navToggle");
