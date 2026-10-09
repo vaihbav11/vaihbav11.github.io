@@ -10,8 +10,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('intro-hold','intro-lock')</script>
+<noscript><style>#intro{display:none}</style></noscript>
 </head>
 <body>
+
+<!-- ============ INTRO — Sudarshan Chakra ============ -->
+<div id="intro">
+  <svg width="0" height="0" style="position:absolute"><defs>
+    <linearGradient id="vgold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFEBB0"/><stop offset=".5" stop-color="#F0B445"/><stop offset="1" stop-color="#9A6414"/></linearGradient>
+    <g id="hs"><path d="M70 380 L80 236 Q110 250 140 236 L150 380 Z"/><rect x="66" y="150" width="88" height="100" rx="30"/><rect x="84" y="58" width="24" height="120" rx="12"/><rect x="110" y="156" width="46" height="22" rx="11"/><rect x="110" y="180" width="44" height="22" rx="11"/><rect x="108" y="204" width="40" height="22" rx="11"/></g>
+  </defs></svg>
+  <div class="veil" id="veil"></div>
+  <div class="ring" id="ring"></div>
+  <div class="hand-box">
+    <svg class="vhand" id="vhand" viewBox="0 0 220 320">
+      <g transform="rotate(-8 110 250)"><use href="#hs" fill="#5b3a0c" stroke="#5b3a0c" stroke-width="6" stroke-linejoin="round"/>
+      <use href="#hs" fill="url(#vgold)"/>
+      <path d="M112 179 H152 M112 203 H150" stroke="#8a5a14" stroke-width="2.2" stroke-linecap="round"/>
+      <rect x="68" y="188" width="54" height="26" rx="13" transform="rotate(-18 95 201)" fill="url(#vgold)" stroke="#5b3a0c" stroke-width="2.2"/>
+      <rect x="62" y="246" width="96" height="14" rx="7" fill="url(#vgold)" stroke="#5b3a0c" stroke-width="2.2"/></g>
+    </svg>
+  </div>
+  <div class="chakra-wrap" id="chakra"><svg class="chakra" viewBox="-100 -100 200 200"></svg></div>
+  <button class="intro-skip" id="introSkip" type="button" aria-label="Skip intro">Skip</button>
+</div>
 
 <div class="progress" id="progress" aria-hidden="true"></div>
 
@@ -34,6 +57,7 @@
 
   <!-- ============ 1. HERO — tone: deepest slate ============ -->
   <section class="hero tone-dark" id="hero">
+    <div class="hero-photo" aria-hidden="true"><img src="hero-bg.jpg" alt=""></div>
     <div class="hero-inner">
       <h1 class="hero-name">Hi, I'm Vaibhav Chaturvedi!</h1>
       <p class="hero-role" id="heroRole"></p>
@@ -52,11 +76,24 @@
   <!-- ============ 3. WORK — tone: slate lifting ============ -->
   <section class="section tone-dark" id="work">
     <div class="inner">
-      <div class="section-head">
-        <h2>Selected work</h2>
-        <p>Things I've built, shipped, and measured.</p>
+      <div class="section-head work-head">
+        <div>
+          <h2>Selected work</h2>
+          <p>Things I've built, shipped, and measured.</p>
+        </div>
+        <div class="carousel-arrows">
+          <button type="button" class="arrow" id="workPrev" aria-label="Previous project">←</button>
+          <button type="button" class="arrow" id="workNext" aria-label="Next project">→</button>
+        </div>
       </div>
-      <div class="bento" id="bento"></div>
+    </div>
+
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+
+    <div class="inner">
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </section>
 
@@ -133,7 +170,15 @@
   </div>
 </footer>
 
+<!-- quote banner — hidden until first scroll, flies into the logo on scroll further -->
+<div class="quote-banner" id="quoteBanner">
+  <p class="quote-text" id="quoteText"></p>
+  <p class="quote-author" id="quoteAuthor"></p>
+</div>
+
+<script src="intro.js"></script>
 <script src="data.js"></script>
+<script src="quotes.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
