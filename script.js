@@ -13,6 +13,96 @@ const esc = (s) => String(s)
 /* ============================================================
    1. BASICS + HERO
    ============================================================ */
+/* ---------- quote banner: shows on first scroll, flies into the logo, reopens on logo click ---------- */
+(function(){
+  const textEl = $("quoteText"), authorEl = $("quoteAuthor"), banner = $("quoteBanner");
+  const logo = document.querySelector(".logo-mark");
+  if (!textEl || !banner || typeof QUOTES === "undefined" || !QUOTES.length) return;
+
+  let bag = [];
+  function refillBag(){
+    bag = QUOTES.map((_, i) => i);
+    for (let i = bag.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [bag[i], bag[j]] = [bag[j], bag[i]];
+    }
+  }
+  function fitSingleLine(){
+    const MAX = 14.5, MIN = 9.5;
+    textEl.style.fontSize = MAX + "px";
+    let size = MAX;
+    // shrink in small steps until the text no longer needs to wrap/clip
+    while (textEl.scrollWidth > textEl.clientWidth && size > MIN){
+      size -= 0.5;
+      textEl.style.fontSize = size + "px";
+    }
+  }
+
+  function pickQuote(){
+    if (!bag.length) refillBag();
+    const q = QUOTES[bag.pop()];
+    textEl.textContent = q.text;
+    authorEl.textContent = q.author;
+    fitSingleLine();
+  }
+
+  let state = "hidden"; // hidden → shown → collapsing → hidden (repeat)
+
+  function show(){
+    if (state === "shown") return;
+    pickQuote();
+    banner.classList.remove("collapsing");
+    void banner.offsetWidth; // reset transition
+    banner.classList.add("in");
+    state = "shown";
+  }
+
+  function collapseIntoLogo(){
+    if (state !== "shown" || !logo) return;
+    const b = banner.getBoundingClientRect();
+    const l = logo.getBoundingClientRect();
+    const dx = (l.left + l.width / 2) - (b.left + b.width / 2);
+    const dy = (l.top + l.height / 2) - (b.top + b.height / 2);
+    banner.style.setProperty("--dx", dx + "px");
+    banner.style.setProperty("--dy", dy + "px");
+    banner.classList.remove("in");
+    banner.classList.add("collapsing");
+    state = "collapsing";
+    setTimeout(() => { state = "hidden"; }, 560);
+  }
+
+  refillBag();
+
+  // scroll within the hero: a little scroll reveals it, more scroll collapses it in
+  const heroEl = $("hero");
+  function onScroll(){
+    if (!heroEl) return;
+    const heroBottom = heroEl.getBoundingClientRect().bottom;
+    const y = window.scrollY;
+
+    if (y > 24 && y < 260 && state === "hidden"){
+      show();
+    } else if ((heroBottom < window.innerHeight * 0.6 || y >= 260) && state === "shown"){
+      collapseIntoLogo();
+    } else if (y <= 10 && state !== "hidden"){
+      // back at the very top — reset so it can play again next time
+      banner.classList.remove("in", "collapsing");
+      state = "hidden";
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  // clicking the logo brings the quote back, any time
+  if (logo){
+    logo.addEventListener("click", (e) => {
+      if (state === "shown") return;
+      e.preventDefault();
+      show();
+      setTimeout(collapseIntoLogo, 4500); // auto-collapse back into the logo after a read
+    });
+  }
+})();
+
 $("footerName").textContent = "© " + new Date().getFullYear() + " " + DATA.name;
 document.title = DATA.name + " — " + DATA.roles[0];
 
@@ -48,9 +138,10 @@ $("heroStats").innerHTML = DATA.stats.map(s => `
 })();
 
 /* ============================================================
-   3. PROJECTS — bento grid
+   3. PROJECTS — Netflix-style horizontal carousel
    ============================================================ */
-$("bento").innerHTML = DATA.projects.map(p => {
+const track = $("carouselTrack");
+track.innerHTML = DATA.projects.map((p, i) => {
   const tags = p.tags.map(t => `<span>${esc(t)}</span>`).join("");
   const links = [
     p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo</a>` : "",
@@ -58,7 +149,7 @@ $("bento").innerHTML = DATA.projects.map(p => {
   ].join("");
 
   return `
-  <article class="card ${p.size === "large" ? "large" : ""} reveal">
+  <article class="card reveal" data-index="${i}">
     <div class="card-top">
       <h3>${esc(p.title)}</h3>
       <span class="card-date">${esc(p.date)}</span>
@@ -69,14 +160,80 @@ $("bento").innerHTML = DATA.projects.map(p => {
   </article>`;
 }).join("");
 
-/* ---------- cursor-following glow on cards ---------- */
-document.querySelectorAll(".card").forEach(card => {
-  card.addEventListener("pointermove", e => {
-    const r = card.getBoundingClientRect();
-    card.style.setProperty("--mx", (e.clientX - r.left) + "px");
-    card.style.setProperty("--my", (e.clientY - r.top) + "px");
+/* ---------- carousel: one card on stage, next/prev slides directionally, loops forever ---------- */
+(function(){
+  const cards = [...track.children];
+  const prevBtn = $("workPrev"), nextBtn = $("workNext");
+  const dotsEl = $("carouselDots");
+  const AUTOPLAY_MS = 6000;
+  const n = cards.length;
+  let current = 0;
+  let animating = false;
+
+  dotsEl.innerHTML = cards.map((_, i) => `<button aria-label="Go to project ${i + 1}"></button>`).join("");
+  const dots = [...dotsEl.children];
+
+  // initial positions: card 0 on stage, everything else parked off to the right, invisible
+  cards.forEach((card, i) => {
+    card.style.transform = i === 0 ? "translateX(0)" : "translateX(8%)";
+    card.style.opacity = i === 0 ? "1" : "0";
+    card.style.pointerEvents = i === 0 ? "auto" : "none";
+    card.style.zIndex = i === 0 ? "2" : "1";
   });
-});
+  dots[0].classList.add("active");
+
+  function slide(targetIndex, dir){
+    // dir: +1 = next (new card enters from the right, old exits left)
+    //      -1 = prev (new card enters from the left, old exits right)
+    if (animating || targetIndex === current) return;
+    animating = true;
+
+    const oldCard = cards[current];
+    const newCard = cards[targetIndex];
+
+    newCard.style.transition = "none";
+    newCard.style.transform = `translateX(${dir > 0 ? "100%" : "-100%"})`;
+    newCard.style.opacity = "0";
+    newCard.style.zIndex = "3";
+    newCard.style.pointerEvents = "none";
+    void newCard.offsetWidth; // force reflow so the "none" transition actually applies first
+    newCard.style.transition = "";
+
+    requestAnimationFrame(() => {
+      oldCard.style.transform = `translateX(${dir > 0 ? "-100%" : "100%"})`;
+      oldCard.style.opacity = "0";
+      oldCard.style.zIndex = "1";
+      newCard.style.transform = "translateX(0)";
+      newCard.style.opacity = "1";
+    });
+
+    setTimeout(() => {
+      oldCard.style.pointerEvents = "none";
+      newCard.style.pointerEvents = "auto";
+      animating = false;
+    }, 560);
+
+    current = targetIndex;
+    dots.forEach((d, idx) => d.classList.toggle("active", idx === current));
+  }
+
+  function next(){ slide((current + 1) % n, 1); }
+  function prev(){ slide((current - 1 + n) % n, -1); }
+
+  let timer = null;
+  function startAutoplay(){ stopAutoplay(); timer = setInterval(next, AUTOPLAY_MS); }
+  function stopAutoplay(){ if (timer) clearInterval(timer); }
+
+  nextBtn.addEventListener("click", () => { next(); startAutoplay(); });
+  prevBtn.addEventListener("click", () => { prev(); startAutoplay(); });
+  dots.forEach((d, i) => d.addEventListener("click", () => {
+    if (i === current) return;
+    slide(i, i > current ? 1 : -1);
+    startAutoplay();
+  }));
+
+  startAutoplay();
+})();
 
 /* ============================================================
    4. EXPERIENCE TIMELINE
